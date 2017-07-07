@@ -1,0 +1,22 @@
+{
+  "name": "ui-tractview",
+  "version": "1.0.0",
+  "description": "HTML5 Tract Viewer - used to visualize output from AFQ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brain-life/ui-tractview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brain-life/ui-tractview/issues"
+  },
+  "homepage": "https://github.com/brain-life/ui-tractview#readme",
+  "dependencies": {
+    "three": "^0.86.0"
+  }
+}
