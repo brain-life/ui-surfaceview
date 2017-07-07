@@ -1,5 +1,5 @@
 /**
- * UI to display output tracts from AFQ using THREE.js
+ * UI to display output surface from Freesurfer using THREE.js
  */
 
 'use strict';
