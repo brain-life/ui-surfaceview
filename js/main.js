@@ -83,8 +83,8 @@ $(document).ready(() => {
         var vtk = new THREE.VTKLoader();
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            //var material = new THREE.MeshLambertMaterial({color: 0xffcc99});
-            var material = new THREE.MeshBasicMaterial();
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
+            //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
             scene.add(mesh);
@@ -93,8 +93,8 @@ $(document).ready(() => {
         var path = encodeURIComponent(base+"/rh.10.vtk");
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            //var material = new THREE.MeshLambertMaterial({color: 0xffcc99});
-            var material = new THREE.MeshBasicMaterial();
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
+            //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
             scene.add(mesh);
