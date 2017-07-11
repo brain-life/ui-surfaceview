@@ -43,7 +43,7 @@ $(document).ready(() => {
     
     function init_conview() {
         var view = $("#conview");
-        var renderer = new THREE.WebGLRenderer({alpha: false, antialias: true});
+        var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
         //renderer.setClearColor(0xffffff, 0);
 
         //scenes - back scene for brain siluet
@@ -84,7 +84,7 @@ $(document).ready(() => {
         var vtk = new THREE.VTKLoader();
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            var material = new THREE.MeshLambertMaterial({color: 0xcc9966, specular: 0x555555, shininess: 30});
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
             //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
@@ -97,7 +97,7 @@ $(document).ready(() => {
         var path = encodeURIComponent(base+"/rh.10.vtk");
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            var material = new THREE.MeshLambertMaterial({color: 0xcc9966, specular: 0x555555, shininess: 30});
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
             //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
