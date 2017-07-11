@@ -43,7 +43,7 @@ $(document).ready(() => {
     
     function init_conview() {
         var view = $("#conview");
-        var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+        var renderer = new THREE.WebGLRenderer({alpha: false, antialias: true});
         //renderer.setClearColor(0xffffff, 0);
 
         //scenes - back scene for brain siluet
@@ -63,11 +63,12 @@ $(document).ready(() => {
         });
         
         // lighting
-        var ambLight = new THREE.AmbientLight(0x303030);
+        var ambLight = new THREE.AmbientLight(0x303030, 1);
         scene.add(ambLight);
-        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-        directionalLight.position.set( 0, 1, 0 );
-        scene.add( directionalLight );
+        // var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        // directionalLight.position.set( 0, 100, 0 );
+        // scene.add( directionalLight );
+        
         var camlight = new THREE.PointLight(0xffffff);
         camlight.position.copy(camera.position);
         scene.add(camlight);
@@ -83,20 +84,26 @@ $(document).ready(() => {
         var vtk = new THREE.VTKLoader();
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966, specular: 0x555555, shininess: 30});
             //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
+            mesh.geometry.computeVertexNormals();
+            mesh.geometry.computeFaceNormals();
+            
             scene.add(mesh);
         });
         //load right
         var path = encodeURIComponent(base+"/rh.10.vtk");
         
         vtk.load(config.wf_api+"/resource/download?r="+rid+"&p="+path+"&at="+config.jwt, geometry => {
-            var material = new THREE.MeshLambertMaterial({color: 0xcc9966});
+            var material = new THREE.MeshLambertMaterial({color: 0xcc9966, specular: 0x555555, shininess: 30});
             //var material = new THREE.MeshBasicMaterial();
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
+            mesh.geometry.computeVertexNormals();
+            mesh.geometry.computeFaceNormals();
+            
             scene.add(mesh);
             
             console.log("loaded mesh: ", mesh);
@@ -129,7 +136,9 @@ $(document).ready(() => {
         });
         function animate_conview() {
             controls.update();
-
+            
+            camlight.position.copy(camera.position);
+            
             renderer.clear();
             renderer.clearDepth();
             renderer.render( scene, camera );
