@@ -99,6 +99,9 @@ $(function() {
 
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
+            mesh.geometry.computeVertexNormals();
+            mesh.geometry.computeFaceNormals();
+            
             scene.add(mesh);
         });
         
@@ -110,6 +113,9 @@ $(function() {
 
             var mesh = new THREE.Mesh( geometry, material );
             mesh.rotation.x = -Math.PI/2;
+            mesh.geometry.computeVertexNormals();
+            mesh.geometry.computeFaceNormals();
+            
             scene.add(mesh);
         });
         
@@ -124,7 +130,9 @@ $(function() {
         });
         function animate_conview() {
             controls.update();
-
+            
+            camlight.position.copy(camera.position);
+            
             renderer.clear();
             renderer.render( scene, camera );
 
