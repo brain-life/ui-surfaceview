@@ -5,6 +5,7 @@ This is a unique visualizer that shows the surface of major white matter tracts.
 
 ### Authors
 - [Soichi Hayashi](hayashis@iu.edu)
+- [Steven O'Riley](stevengeeky@gmail.com)
 
 ### Contributors
 - [Franco Pestilli](frakkopesto@gmail.com)
