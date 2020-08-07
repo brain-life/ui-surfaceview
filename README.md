@@ -1,4 +1,4 @@
-# White Mtter Tracts Surface Visualizer
+# White Matter Tracts Surface Visualizer
 This is a unique visualizer that shows the surface of major white matter tracts.
 
 [Demo on brainlife.io](https://brainlife.io/ui/surfaces/)
